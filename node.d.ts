@@ -1,5 +1,6 @@
 declare namespace $ { }
 export = $;
+
 declare namespace $ {
     namespace $$ {
         let $$: typeof $;
@@ -7,6 +8,7 @@ declare namespace $ {
     type $mol_ambient_context = (typeof globalThis) & (typeof $.$$) & (typeof $);
     function $mol_ambient(this: $mol_ambient_context, overrides: Partial<$mol_ambient_context>): $mol_ambient_context;
 }
+
 declare namespace $ {
     namespace $$ { }
     class $mol_object {
@@ -28,6 +30,7 @@ declare namespace $ {
         destructor(): void;
     }
 }
+
 declare namespace $ {
     class $mol_window extends $mol_object {
         static size(next?: {
@@ -39,9 +42,11 @@ declare namespace $ {
         };
     }
 }
+
 declare namespace $ {
     function $mol_compare_any(a: any, b: any): boolean;
 }
+
 declare namespace $ {
     const $mol_conform_stack: any[];
     function $mol_conform<Target, Source>(target: Target, source: Source): Target;
@@ -50,27 +55,35 @@ declare namespace $ {
         new (...args: any[]): Class;
     }, handler: (target: Class, source: Class) => Class): void;
 }
+
 declare namespace $ {
     function $mol_fail(error: any): never;
 }
+
 declare namespace $ {
     function $mol_fail_hidden(error: any): never;
 }
+
 declare namespace $ {
     function $mol_log(path: any, ...values: any[]): void;
 }
+
 declare namespace $ {
     function $mol_log_context(next?: () => void): () => void;
 }
+
 declare namespace $ {
     function $mol_log_debug(next?: () => void): () => void;
 }
+
 declare namespace $ {
     var $mol_log_filter: (next?: string) => string;
 }
+
 declare namespace $ {
     function $mol_log_group<Task extends Function, This>(name: string, task: Task): Task;
 }
+
 declare namespace $ {
     class $mol_defer extends $mol_object {
         run: () => void;
@@ -86,9 +99,11 @@ declare namespace $ {
         static run(): void;
     }
 }
+
 declare namespace $ {
     var $mol_state_stack: Map<string, any>;
 }
+
 declare namespace $ {
     enum $mol_atom_status {
         obsolete = "obsolete",
@@ -150,6 +165,7 @@ declare namespace $ {
     class $mol_atom_force_update extends $mol_atom_force {
     }
 }
+
 declare namespace $ {
     function $mol_dict_key(value: any): any;
     class $mol_dict<Key, Value> extends Map<Key, Value> {
@@ -164,19 +180,29 @@ declare namespace $ {
         };
     }
 }
+
 declare namespace $ {
     function $mol_mem<Host, Value>(obj: Host, name: string, descr: TypedPropertyDescriptor<(next?: Value, force?: $mol_atom_force) => Value>): void;
     function $mol_mem_key<Host, Key, Value>(obj: Host, name: string, descr: TypedPropertyDescriptor<(key: Key, next?: Value, force?: $mol_atom_force) => Value>): void;
 }
+
+/// <reference types="node" />
 declare namespace $ {
-    function $mol_exec(dir: string, command: string, ...args: string[]): any;
+    function $mol_exec(dir: string, command: string, ...args: string[]): import("child_process").SpawnSyncReturns<Buffer>;
 }
-declare var $node: any;
+
+interface $node {
+    [key: string]: any;
+}
+declare var $node: $node;
+
 declare namespace $ {
 }
+
 declare namespace $ {
     var $mol_dom_context: Window & Pick<typeof globalThis, 'Node' | 'Element' | 'HTMLElement' | 'XMLHttpRequest' | 'DOMParser' | 'XMLSerializer'>;
 }
+
 declare namespace $ {
     class $mol_view_selection extends $mol_object {
         static focused(next?: Element[], force?: $mol_atom_force): Element[];
@@ -193,11 +219,13 @@ declare namespace $ {
         static onBlur(event: FocusEvent): void;
     }
 }
+
 declare namespace $ {
     function $mol_dom_render_attributes(el: Element, attrs: {
         [key: string]: string | number | boolean;
     }): void;
 }
+
 declare namespace $ {
     function $mol_dom_render_events(el: Element, events: {
         [key: string]: (event: Event) => any;
@@ -206,25 +234,30 @@ declare namespace $ {
         [key: string]: (event: Event) => any;
     }): void;
 }
+
 declare namespace $ {
     function $mol_dom_render_children(el: Element, childNodes: NodeList | readonly (Node | string | number | boolean | {
         dom_tree: () => Node;
     })[]): void;
 }
+
 declare namespace $ {
     function $mol_dom_render_styles(el: Element, styles: {
         [key: string]: string | number;
     }): void;
 }
+
 declare namespace $ {
     function $mol_dom_render_fields(el: Element, fields: {
         [key: string]: any;
     }): void;
 }
+
 declare namespace $ {
     function $mol_func_name(func: Function): string;
     function $mol_func_name_from<Target extends Function>(target: Target, source: Function): Target;
 }
+
 declare namespace $ {
     namespace $$ { }
     namespace $mol { }
@@ -275,6 +308,7 @@ declare namespace $ {
         plugins(): readonly $mol_view[];
     }
 }
+
 declare namespace $ {
     const enum $mol_keyboard_code {
         backspace = 8,
@@ -378,6 +412,7 @@ declare namespace $ {
         quoteSingle = 222
     }
 }
+
 declare namespace $ {
     class $mol_button extends $mol_view {
         enabled(): boolean;
@@ -402,6 +437,7 @@ declare namespace $ {
         sub(): any[];
     }
 }
+
 declare namespace $.$$ {
     class $mol_button extends $.$mol_button {
         disabled(): boolean;
@@ -410,6 +446,7 @@ declare namespace $.$$ {
         tab_index(): number;
     }
 }
+
 declare namespace $ {
     class $mol_button_typed extends $mol_button {
     }
@@ -429,6 +466,7 @@ declare namespace $ {
     class $mol_button_minor extends $mol_button_typed {
     }
 }
+
 declare namespace $ {
     class $mol_scroll extends $mol_view {
         minimal_height(): number;
@@ -452,6 +490,7 @@ declare namespace $ {
         strut_transform(): string;
     }
 }
+
 declare namespace $.$$ {
     function $mol_scroll_top(): number;
     function $mol_scroll_left(): number;
@@ -471,6 +510,7 @@ declare namespace $.$$ {
         sub_visible(): (string | number | boolean | Node | $mol_view)[];
     }
 }
+
 declare namespace $ {
     class $mol_state_session<Value> extends $mol_object {
         static 'native()': Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
@@ -484,6 +524,7 @@ declare namespace $ {
         value(key: string, next?: Value): Value;
     }
 }
+
 declare namespace $ {
     class $mol_page extends $mol_view {
         sub(): any[];
@@ -500,11 +541,13 @@ declare namespace $ {
         foot(): any[];
     }
 }
+
 declare namespace $.$$ {
     class $mol_page extends $.$mol_page {
         body_scroll_top(next?: number): number;
     }
 }
+
 declare namespace $ {
     class $mol_state_local<Value> extends $mol_object {
         static 'native()': Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
@@ -518,35 +561,39 @@ declare namespace $ {
         value(key: string, next?: Value): Value;
     }
 }
+
 declare namespace $ {
     function $mol_const<Value>(value: Value): {
         (): Value;
         '()': Value;
     };
 }
+
+/// <reference types="node" />
 declare namespace $ {
     class $mol_file extends $mol_object {
         static absolute(path: string): $mol_file;
         static relative(path: string): $mol_file;
         path(): string;
-        watcher(): any;
+        watcher(): import("chokidar").FSWatcher;
         stat(next?: any, force?: $mol_atom_force): any;
         version(): any;
         exists(next?: boolean): boolean;
         parent(): $mol_file;
         type(): "dir" | "link" | "file" | "blocks" | "chars" | "fifo" | "socket";
-        name(): any;
+        name(): string;
         ext(): string;
-        content(next?: string, force?: $mol_atom_force): any;
-        reader(): any;
-        writer(): any;
+        content(next?: string | Buffer, force?: $mol_atom_force): string | Buffer;
+        reader(): import("fs").ReadStream;
+        writer(): import("fs").WriteStream;
         sub(): $mol_file[];
         resolve(path: string): $mol_file;
-        relate(base?: $mol_file): any;
+        relate(base?: $mol_file): string;
         append(next: string): void;
         find(include?: RegExp, exclude?: RegExp): $mol_file[];
     }
 }
+
 declare namespace $ {
     interface $mol_locale_dict {
         [key: string]: string;
@@ -559,6 +606,7 @@ declare namespace $ {
         static text(key: string): string;
     }
 }
+
 declare namespace $ {
     class $mol_state_arg extends $mol_object {
         prefix: string;
@@ -581,6 +629,7 @@ declare namespace $ {
         }): string;
     }
 }
+
 declare namespace $ {
     class $mol_link extends $mol_view {
         minimal_height(): number;
@@ -606,6 +655,7 @@ declare namespace $ {
         event_click(event?: any, force?: $mol_atom_force): any;
     }
 }
+
 declare namespace $.$$ {
     class $mol_link extends $.$mol_link {
         uri(): string;
@@ -614,16 +664,19 @@ declare namespace $.$$ {
         file_name(): string;
     }
 }
+
 declare namespace $ {
     class $mol_demo_large extends $mol_view {
     }
 }
+
 declare namespace $.$$ {
     class $mol_demo_large extends $.$mol_demo_large {
         minimal_height(): number;
         minimal_width(): number;
     }
 }
+
 declare namespace $ {
     class $mol_demo_ext extends $mol_demo_large {
         dom_name(): string;
@@ -633,6 +686,7 @@ declare namespace $ {
         uri(): string;
     }
 }
+
 declare namespace $ {
     class $hyoo_showcase extends $mol_page {
         attr(): {
@@ -703,6 +757,7 @@ declare namespace $ {
         background(): string;
     }
 }
+
 declare namespace $.$$ {
     class $hyoo_showcase_app extends $.$hyoo_showcase_app {
         background(): string;
