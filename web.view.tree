@@ -1,90 +1,3 @@
-$mol_button $mol_view
-	enabled true
-	minimal_height 40
-	click?event null
-	event_click?event null
-	event *
-		^
-		click?event <=> event_activate?event null
-		keypress?event <=> event_key_press?event null 
-	attr *
-		^
-		disabled <= disabled false
-		role \button
-		tabindex <= tab_index 0
-		title <= hint \
-	sub /
-		<= title
-
-$mol_button_typed $mol_button
-
-$mol_button_major $mol_button_typed
-	attr *
-		^
-		mol_theme \$mol_theme_accent
-
-$mol_button_minor $mol_button_typed
-
-$mol_scroll $mol_view
-	minimal_height 0
-	moving_hor?val false
-	moving_vert?val false
-	field *
-		^
-		scrollTop <= scroll_top?val 0
-		scrollLeft <= scroll_left?val 0
-		scrollBottom <= scroll_bottom?val 0
-		scrollRight <= scroll_right?val 0
-	event_async *
-		^
-		scroll?event <=> event_scroll?event null
-		- DOMSubtreeModified?event <=> event_repos?event null
-	Strut $mol_view
-		style *
-			transform <= strut_transform \
-
-$mol_page $mol_view
-	sub /
-		<= Head $mol_view
-			attr * mol_theme \$mol_theme_base
-			sub <= head /
-				<= Title $mol_button
-					sub /
-						<= title
-					event_click?val <=> event_top?val null
-				<= Tools $mol_view
-					sub <= tools /
-		<= Body $mol_scroll
-			scroll_top?val <=> body_scroll_top?val 0
-			sub <= body /
-		<= Foot $mol_view
-			attr * mol_theme \$mol_theme_base
-			sub <= foot /
-
-$mol_link $mol_view
-	minimal_height 40
-	dom_name \a
-	attr *
-		^
-		href <= uri \
-		title <= hint \
-		target <= target \_self
-		download <= file_name \
-		mol_link_current <= current false
-	sub / <= title
-	arg *
-	event *
-		^
-		click?event <=> click?event <=> event_click?event null
-
-$mol_demo_large $mol_view
-
-$mol_demo_ext $mol_demo_large
-	dom_name \object
-	attr *
-		^
-		data <= uri \
-
 $hyoo_showcase $mol_page
 	attr * mol_theme \$mol_theme_dark
 	title @ \$mol applications
@@ -103,7 +16,7 @@ $hyoo_showcase $mol_page
 			details \https://scout.hyoo.ru/#gist=%D0%A1%D1%82%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D1%82%D0%B5%D0%BD%D0%BA%D1%83
 		<= App_piterjs $hyoo_showcase_app
 			title <= app_piterjs_title @ \PiterJS
-			details \https://piterjs.org/#meetup=30
+			details \https://piterjs.org/#meetup=40
 		<= App_toys $hyoo_showcase_app
 			title <= app_toys_title @ \Online store
 			details \https://toys.hyoo.ru/
@@ -174,3 +87,88 @@ $hyoo_showcase_app $mol_link
 		<= Demo $mol_demo_ext
 			style * background-image <= background \
 			uri <= details \
+
+$mol_page $mol_view
+	sub /
+		<= Head $mol_view
+			attr * mol_theme \$mol_theme_base
+			sub <= head /
+				<= Title $mol_button
+					sub /
+						<= title
+					event_click?val <=> event_top?val null
+				<= Tools $mol_view
+					sub <= tools /$mol_view_content
+		<= Body $mol_scroll
+			scroll_top?val <=> body_scroll_top?val 0
+			sub <= body /$mol_view_content
+		<= Foot $mol_view
+			attr * mol_theme \$mol_theme_base
+			sub <= foot /$mol_view
+
+$mol_button $mol_view
+	enabled true
+	minimal_height 40
+	click?event null
+	event_click?event null
+	event *
+		^
+		click?event <=> event_activate?event null
+		keypress?event <=> event_key_press?event null 
+	attr *
+		^
+		disabled <= disabled false
+		role \button
+		tabindex <= tab_index 0
+		title <= hint \
+	sub /$mol_view_content
+		<= title
+
+$mol_button_typed $mol_button
+
+$mol_button_major $mol_button_typed
+	attr *
+		^
+		mol_theme \$mol_theme_accent
+
+$mol_button_minor $mol_button_typed
+
+$mol_scroll $mol_view
+	minimal_height 0
+	field *
+		^
+		scrollTop <= scroll_top?val 0
+		scrollLeft <= scroll_left?val 0
+		scrollBottom <= scroll_bottom?val 0
+		scrollRight <= scroll_right?val 0
+	event *
+		^
+		scroll?event <=> event_scroll?event null
+	Strut $mol_view
+		style *
+			transform <= strut_transform \
+
+$mol_link $mol_view
+	minimal_height 40
+	dom_name \a
+	attr *
+		^
+		href <= uri \
+		title <= hint \
+		target <= target \_self
+		download <= file_name \
+		mol_link_current <= current false
+	sub /$mol_view_content
+		<= title
+	arg *
+	event *
+		^
+		click?event <=> click?event <=> event_click?event null
+
+$mol_demo_large $mol_view
+
+$mol_demo_ext $mol_demo_large
+	dom_name \object
+	attr *
+		^
+		data <= uri \
