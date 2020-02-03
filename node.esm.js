@@ -3488,7 +3488,7 @@ var $;
         App_todomvc() {
             return ((obj) => {
                 obj.title = () => this.app_todomvc_title();
-                obj.details = () => "https://mol.js.org/app/todomvc/";
+                obj.details = () => "https://mol.js.org/app/todomvc/-/";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3498,7 +3498,7 @@ var $;
         App_supplies() {
             return ((obj) => {
                 obj.title = () => this.app_supplies_title();
-                obj.details = () => "https://mol.js.org/app/supplies/#entered/supply=75BCD15";
+                obj.details = () => "https://mol.js.org/app/supplies/-/#entered/supply=75BCD15";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3508,7 +3508,7 @@ var $;
         App_life() {
             return ((obj) => {
                 obj.title = () => this.app_life_title();
-                obj.details = () => "https://mol.js.org/app/life/#snapshot=0~1fffe~2ffff~20000~20001~10002~30000~6ffff~7ffff~7fffe~6fffe~6fffd~7fffd~80000~8fffc~a0000~a0001~afffc~afffb~14fffe~15fffd~15fffe~14fffd~-3~-fffd~-10003~-1fffd~-20002~-2fffe~-3ffff~-40000~-30001~-d0000~-e0000~-d0001~-c0001";
+                obj.details = () => "https://mol.js.org/app/life/-/#snapshot=0~1fffe~2ffff~20000~20001~10002~30000~6ffff~7ffff~7fffe~6fffe~6fffd~7fffd~80000~8fffc~a0000~a0001~afffc~afffb~14fffe~15fffd~15fffe~14fffd~-3~-fffd~-10003~-1fffd~-20002~-2fffe~-3ffff~-40000~-30001~-d0000~-e0000~-d0001~-c0001";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3518,7 +3518,7 @@ var $;
         App_habhub() {
             return ((obj) => {
                 obj.title = () => this.app_habhub_title();
-                obj.details = () => "https://mol.js.org/app/habhub/#gist=https%3A%2F%2Fapi.github.com%2Frepos%2Fnin-jin%2FHabHub%2Fissues%2F3";
+                obj.details = () => "https://mol.js.org/app/habhub/-/#gist=https%3A%2F%2Fapi.github.com%2Frepos%2Fnin-jin%2FHabHub%2Fissues%2F3";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3528,7 +3528,7 @@ var $;
         App_questions() {
             return ((obj) => {
                 obj.title = () => this.app_questions_title();
-                obj.details = () => "https://mol.js.org/app/questions/#question=2003505";
+                obj.details = () => "https://mol.js.org/app/questions/-/#question=2003505";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3538,7 +3538,7 @@ var $;
         App_slides() {
             return ((obj) => {
                 obj.title = () => this.app_slides_title();
-                obj.details = () => "https://mol.js.org/app/slides/#slides=https%3A%2F%2Fnin-jin.github.io%2Fslides%2Forp%2F/slide=2";
+                obj.details = () => "https://mol.js.org/app/slides/-/#slides=https%3A%2F%2Fnin-jin.github.io%2Fslides%2Forp%2F/slide=2";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3548,7 +3548,7 @@ var $;
         App_lamps() {
             return ((obj) => {
                 obj.title = () => this.app_lamps_title();
-                obj.details = () => "http://mol.js.org/app/lamps/#lamp=1";
+                obj.details = () => "http://mol.js.org/app/lamps/-/#lamp=1";
                 obj.preview = () => "https://habrastorage.org/webt/db/4p/vm/db4pvmn90ukqz1qruyafchxqk0m.png";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
@@ -3559,7 +3559,7 @@ var $;
         App_rdf() {
             return ((obj) => {
                 obj.title = () => this.app_rdf_title();
-                obj.details = () => "http://mol.js.org/app/rdf/#uri=http%3A%2F%2Fdbpedia.org%2Fontology%2Fhead";
+                obj.details = () => "http://mol.js.org/app/rdf/-/#uri=http%3A%2F%2Fdbpedia.org%2Fontology%2Fhead";
                 obj.preview = () => "https://hsto.org/webt/ig/kl/ke/igklkep4oi5sd0nzwr2oc9scfj4.png";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
@@ -3570,7 +3570,7 @@ var $;
         App_bench() {
             return ((obj) => {
                 obj.title = () => this.app_bench_title();
-                obj.details = () => "https://mol.js.org/app/bench/#bench=https%3A%2F%2Feigenmethod.github.io%2Ftodomvc%2Fbenchmark%2F/sample=mol/sort=fill";
+                obj.details = () => "https://mol.js.org/app/bench/-/#bench=https%3A%2F%2Feigenmethod.github.io%2Ftodomvc%2Fbenchmark%2F/sample=mol/sort=fill";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3580,7 +3580,7 @@ var $;
         App_request() {
             return ((obj) => {
                 obj.title = () => this.app_request_title();
-                obj.details = () => "https://mol.js.org/app/request/#uri=https%3A%2F%2Fapi.github.com%2Frepos%2Feigenmethod%2Fmol";
+                obj.details = () => "https://mol.js.org/app/request/-/#uri=https%3A%2F%2Fapi.github.com%2Frepos%2Feigenmethod%2Fmol";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3600,7 +3600,7 @@ var $;
         App_issues() {
             return ((obj) => {
                 obj.title = () => this.app_issues_title();
-                obj.details = () => "https://mol.js.org/app/issues/#projects=eigenmethod%2Fmol%2Cfacebook%2Freact%2Cvuejs%2Fvue";
+                obj.details = () => "https://mol.js.org/app/issues/-/#projects=eigenmethod%2Fmol%2Cfacebook%2Freact%2Cvuejs%2Fvue";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3620,7 +3620,7 @@ var $;
         App_taxon() {
             return ((obj) => {
                 obj.title = () => this.app_taxon_title();
-                obj.details = () => "https://mol.js.org/app/taxon/demo/";
+                obj.details = () => "https://mol.js.org/app/taxon/demo/-/";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
