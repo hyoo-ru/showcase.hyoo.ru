@@ -3664,7 +3664,7 @@ var $;
         App_slides() {
             return ((obj) => {
                 obj.title = () => this.app_slides_title();
-                obj.details = () => "https://mol.js.org/app/slides/-/#slides=https%3A%2F%2Fnin-jin.github.io%2Fslides%2Forp%2F/slide=2";
+                obj.details = () => "https://slides.hyoo.ru/#slides=https%3A%2F%2Fnin-jin.github.io%2Fslides%2Forp%2F/slide=2";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
