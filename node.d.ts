@@ -1024,6 +1024,8 @@ declare namespace $ {
         app_taxon_title(): string;
         App_icons(): $$.$hyoo_showcase_app;
         app_icons_title(): string;
+        App_portal(): $$.$hyoo_showcase_app;
+        app_portal_title(): string;
     }
 }
 declare namespace $ {

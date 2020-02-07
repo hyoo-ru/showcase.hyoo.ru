@@ -3549,7 +3549,7 @@ var $;
             })(new this.$.$mol_scroll());
         }
         apps() {
-            return [this.App_widgets(), this.App_scout(), this.App_piterjs(), this.App_toys(), this.App_calc(), this.App_notes(), this.App_todomvc(), this.App_supplies(), this.App_life(), this.App_habhub(), this.App_questions(), this.App_slides(), this.App_lamps(), this.App_rdf(), this.App_bench(), this.App_request(), this.App_jsperf(), this.App_issues(), this.App_tree(), this.App_taxon(), this.App_icons()];
+            return [this.App_widgets(), this.App_scout(), this.App_piterjs(), this.App_toys(), this.App_calc(), this.App_notes(), this.App_todomvc(), this.App_supplies(), this.App_life(), this.App_habhub(), this.App_questions(), this.App_slides(), this.App_lamps(), this.App_rdf(), this.App_bench(), this.App_request(), this.App_jsperf(), this.App_issues(), this.App_tree(), this.App_taxon(), this.App_icons(), this.App_portal()];
         }
         App_widgets() {
             return ((obj) => {
@@ -3614,7 +3614,7 @@ var $;
         App_todomvc() {
             return ((obj) => {
                 obj.title = () => this.app_todomvc_title();
-                obj.details = () => "https://mol.js.org/app/todomvc/-/";
+                obj.details = () => "https://todomvc.hyoo.ru/";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3644,7 +3644,7 @@ var $;
         App_habhub() {
             return ((obj) => {
                 obj.title = () => this.app_habhub_title();
-                obj.details = () => "https://mol.js.org/app/habhub/-/#gist=https%3A%2F%2Fapi.github.com%2Frepos%2Fnin-jin%2FHabHub%2Fissues%2F3";
+                obj.details = () => "https://habhub.hyoo.ru/#gist=https%3A%2F%2Fapi.github.com%2Frepos%2Fnin-jin%2FHabHub%2Fissues%2F3";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3736,7 +3736,7 @@ var $;
         App_tree() {
             return ((obj) => {
                 obj.title = () => this.app_tree_title();
-                obj.details = () => "https://mol.js.org/app/tree/-/";
+                obj.details = () => "https://tree.hyoo.ru/";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3762,6 +3762,16 @@ var $;
         }
         app_icons_title() {
             return this.$.$mol_locale.text("$hyoo_showcase_app_icons_title");
+        }
+        App_portal() {
+            return ((obj) => {
+                obj.title = () => this.app_portal_title();
+                obj.details = () => "https://portal.hyoo.ru/";
+                return obj;
+            })(new this.$.$hyoo_showcase_app());
+        }
+        app_portal_title() {
+            return this.$.$mol_locale.text("$hyoo_showcase_app_portal_title");
         }
     }
     __decorate([
@@ -3836,6 +3846,9 @@ var $;
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_icons", null);
+    __decorate([
+        $.$mol_mem
+    ], $hyoo_showcase.prototype, "App_portal", null);
     $.$hyoo_showcase = $hyoo_showcase;
 })($ || ($ = {}));
 (function ($) {
