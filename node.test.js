@@ -3541,7 +3541,7 @@ var $;
         App_lamps() {
             return ((obj) => {
                 obj.title = () => this.app_lamps_title();
-                obj.details = () => "http://mol.js.org/app/lamps/-/#lamp=1";
+                obj.details = () => "http://lamps.hyoo.ru/#lamp=1";
                 obj.preview = () => "https://habrastorage.org/webt/db/4p/vm/db4pvmn90ukqz1qruyafchxqk0m.png";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
@@ -3552,7 +3552,7 @@ var $;
         App_rdf() {
             return ((obj) => {
                 obj.title = () => this.app_rdf_title();
-                obj.details = () => "http://mol.js.org/app/rdf/-/#uri=http%3A%2F%2Fdbpedia.org%2Fontology%2Fhead";
+                obj.details = () => "http://rdf.hyoo.ru/#uri=http%3A%2F%2Fdbpedia.org%2Fontology%2Fhead";
                 obj.preview = () => "https://hsto.org/webt/ig/kl/ke/igklkep4oi5sd0nzwr2oc9scfj4.png";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
@@ -3573,7 +3573,7 @@ var $;
         App_request() {
             return ((obj) => {
                 obj.title = () => this.app_request_title();
-                obj.details = () => "https://mol.js.org/app/request/-/#uri=https%3A%2F%2Fapi.github.com%2Frepos%2Feigenmethod%2Fmol";
+                obj.details = () => "https://http.hyoo.ru/#uri=https%3A%2F%2Fapi.github.com%2Frepos%2Feigenmethod%2Fmol";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
