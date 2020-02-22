@@ -724,16 +724,16 @@ declare namespace $ {
         click(event?: any, force?: $mol_mem_force): any;
         event_click(event?: any, force?: $mol_mem_force): any;
         event(): {
-            "click": (event?: any) => any;
-            "keypress": (event?: any) => any;
+            click: (event?: any) => any;
+            keypress: (event?: any) => any;
         };
         event_activate(event?: any, force?: $mol_mem_force): any;
         event_key_press(event?: any, force?: $mol_mem_force): any;
         attr(): {
-            "disabled": boolean;
-            "role": string;
-            "tabindex": number;
-            "title": string;
+            disabled: boolean;
+            role: string;
+            tabindex: number;
+            title: string;
         };
         disabled(): boolean;
         tab_index(): number;
@@ -761,11 +761,11 @@ declare namespace $ {
 declare namespace $ {
     class $mol_button_major extends $mol_button_typed {
         attr(): {
-            "mol_theme": string;
-            "disabled": boolean;
-            "role": string;
-            "tabindex": number;
-            "title": string;
+            mol_theme: string;
+            disabled: boolean;
+            role: string;
+            tabindex: number;
+            title: string;
         };
     }
 }
@@ -785,13 +785,13 @@ declare namespace $ {
         minimal_height(): number;
         _event_scroll_timer(val?: any, force?: $mol_mem_force): any;
         field(): {
-            "scrollTop": any;
-            "scrollLeft": any;
+            scrollTop: any;
+            scrollLeft: any;
         };
         scroll_top(val?: any, force?: $mol_mem_force): any;
         scroll_left(val?: any, force?: $mol_mem_force): any;
         event(): {
-            "scroll": (event?: any) => any;
+            scroll: (event?: any) => any;
         };
         event_scroll(event?: any, force?: $mol_mem_force): any;
     }
@@ -953,11 +953,11 @@ declare namespace $ {
     class $mol_link extends $mol_view {
         dom_name(): string;
         attr(): {
-            "href": string;
-            "title": string;
-            "target": string;
-            "download": string;
-            "mol_link_current": boolean;
+            href: string;
+            title: string;
+            target: string;
+            download: string;
+            mol_link_current: boolean;
         };
         uri(): string;
         hint(): string;
@@ -967,7 +967,7 @@ declare namespace $ {
         sub(): readonly (string | number | boolean | Node | $mol_view)[];
         arg(): {};
         event(): {
-            "click": (event?: any) => any;
+            click: (event?: any) => any;
         };
         click(event?: any, force?: $mol_mem_force): any;
         event_click(event?: any, force?: $mol_mem_force): any;
@@ -1009,7 +1009,7 @@ declare namespace $ {
     class $mol_demo_ext extends $mol_demo_large {
         dom_name(): string;
         attr(): {
-            "data": string;
+            data: string;
         };
         uri(): string;
     }
@@ -1018,7 +1018,7 @@ declare namespace $ {
 declare namespace $ {
     class $hyoo_showcase extends $mol_page {
         attr(): {
-            "mol_theme": string;
+            mol_theme: string;
         };
         title(): string;
         tools(): readonly any[];
