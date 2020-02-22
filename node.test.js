@@ -3570,7 +3570,7 @@ var $;
         App_bench() {
             return ((obj) => {
                 obj.title = () => this.app_bench_title();
-                obj.details = () => "https://mol.js.org/app/bench/-/#bench=https%3A%2F%2Feigenmethod.github.io%2Ftodomvc%2Fbenchmark%2F/sample=mol/sort=fill";
+                obj.details = () => "https://bench.hyoo.ru/#bench=https%3A%2F%2Feigenmethod.github.io%2Ftodomvc%2Fbenchmark%2F/sample=mol/sort=fill";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
@@ -3590,7 +3590,7 @@ var $;
         App_jsperf() {
             return ((obj) => {
                 obj.title = () => this.app_jsperf_title();
-                obj.details = () => "https://mol.js.org/app/jsperf/-/#sources=%5B%22window.location.href%3B%22%2C%22document.location.href%3B%22%5D/prefix/postfix/optimized=true";
+                obj.details = () => "https://jsperf.hyoo.ru/#sources=%5B%22window.location.href%3B%22%2C%22document.location.href%3B%22%5D/prefix/postfix/optimized=true";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
