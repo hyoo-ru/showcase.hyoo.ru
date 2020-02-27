@@ -3600,7 +3600,7 @@ var $;
         App_issues() {
             return ((obj) => {
                 obj.title = () => this.app_issues_title();
-                obj.details = () => "https://github-compare.hyoo.ru/#projects=eigenmethod%2Fmol%2Cfacebook%2Freact%2Cvuejs%2Fvue";
+                obj.details = () => "https://compare.github.hyoo.ru/#projects=eigenmethod%2Fmol%2Cfacebook%2Freact%2Cvuejs%2Fvue";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
