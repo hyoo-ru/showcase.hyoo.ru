@@ -119,9 +119,8 @@ var $;
 var $;
 (function ($) {
     var _a;
-    class $mol_object2 extends Object {
+    class $mol_object2 {
         constructor(init) {
-            super();
             this[_a] = null;
             if (init)
                 init(this);
@@ -3641,7 +3640,7 @@ var $;
         App_life() {
             return ((obj) => {
                 obj.title = () => this.app_life_title();
-                obj.details = () => "https://mol.js.org/app/life/-/#snapshot=0~1fffe~2ffff~20000~20001~10002~30000~6ffff~7ffff~7fffe~6fffe~6fffd~7fffd~80000~8fffc~a0000~a0001~afffc~afffb~14fffe~15fffd~15fffe~14fffd~-3~-fffd~-10003~-1fffd~-20002~-2fffe~-3ffff~-40000~-30001~-d0000~-e0000~-d0001~-c0001";
+                obj.details = () => "https://life.hyoo.ru/#snapshot=0~1fffe~2ffff~20000~20001~10002~30000~6ffff~7ffff~7fffe~6fffe~6fffd~7fffd~80000~8fffc~a0000~a0001~afffc~afffb~14fffe~15fffd~15fffe~14fffd~-3~-fffd~-10003~-1fffd~-20002~-2fffe~-3ffff~-40000~-30001~-d0000~-e0000~-d0001~-c0001";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
