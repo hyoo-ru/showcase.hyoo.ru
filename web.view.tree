@@ -163,10 +163,10 @@ $mol_link $mol_view
 		^
 		click?event <=> click?event <=> event_click?event null
 
-$mol_demo_large $mol_view
-
 $mol_demo_ext $mol_demo_large
 	dom_name \object
 	attr *
 		^
 		data <= uri \
+
+$mol_demo_large $mol_view

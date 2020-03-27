@@ -1104,9 +1104,6 @@ declare namespace $ {
 }
 
 declare namespace $ {
-}
-
-declare namespace $ {
     class $mol_demo_ext extends $mol_demo_large {
         dom_name(): string;
         attr(): {
@@ -1114,6 +1111,9 @@ declare namespace $ {
         };
         uri(): string;
     }
+}
+
+declare namespace $ {
 }
 
 declare namespace $ {
