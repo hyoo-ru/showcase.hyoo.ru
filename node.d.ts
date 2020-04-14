@@ -1182,8 +1182,6 @@ declare namespace $ {
         app_issues_title(): string;
         App_tree(): $$.$hyoo_showcase_app;
         app_tree_title(): string;
-        App_taxon(): $$.$hyoo_showcase_app;
-        app_taxon_title(): string;
         App_icons(): $$.$hyoo_showcase_app;
         app_icons_title(): string;
         App_portal(): $$.$hyoo_showcase_app;
