@@ -1372,7 +1372,7 @@ var $;
     }
     $.$mol_mem_persist = $mol_mem_persist;
     function $mol_mem(proto, name, descr) {
-        const value = descr.value;
+        const orig = descr.value;
         const store = new WeakMap();
         Object.defineProperty(proto, name + "()", {
             get: function () {
@@ -1384,7 +1384,7 @@ var $;
             if (cache)
                 return cache;
             let cache2 = new $.$mol_atom2;
-            cache2.calculate = value.bind(host);
+            cache2.calculate = orig.bind(host);
             cache2[Symbol.toStringTag] = `${host}.${name}()`;
             cache2.abort = () => {
                 store.delete(host);
@@ -1396,24 +1396,25 @@ var $;
             store.set(host, cache2);
             return cache2;
         };
-        return Object.assign(Object.assign({}, descr || {}), { value(next, force) {
-                if (next === undefined) {
-                    const cache = get_cache(this);
-                    if (force === $.$mol_mem_force_cache)
-                        return cache.obsolete(Number.NaN);
-                    if ($.$mol_atom2.current)
-                        return cache.get();
-                    else
-                        return $.$mol_fiber.run(() => cache.get());
-                }
-                return $.$mol_fiber.run(() => {
-                    if (force === $.$mol_mem_force_fail)
-                        return get_cache(this).fail(next);
-                    if (force !== $.$mol_mem_force_cache)
-                        next = value.call(this, next);
-                    return get_cache(this).put(next);
-                });
-            } });
+        function value(next, force) {
+            if (next === undefined) {
+                const cache = get_cache(this);
+                if (force === $.$mol_mem_force_cache)
+                    return cache.obsolete(Number.NaN);
+                if ($.$mol_atom2.current)
+                    return cache.get();
+                else
+                    return $.$mol_fiber.run(() => cache.get());
+            }
+            return $.$mol_fiber.run(() => {
+                if (force === $.$mol_mem_force_fail)
+                    return get_cache(this).fail(next);
+                if (force !== $.$mol_mem_force_cache)
+                    next = orig.call(this, next);
+                return get_cache(this).put(next);
+            });
+        }
+        return Object.assign(Object.assign({}, descr || {}), { value: Object.assign(value, { orig }) });
     }
     $.$mol_mem = $mol_mem;
 })($ || ($ = {}));
@@ -2924,7 +2925,7 @@ var $;
             boxSizing: 'border-box',
             background: "var(--mol_theme_back)",
             color: "var(--mol_theme_text)",
-            zIndex: '0',
+            zIndex: '1',
             overflow: 'hidden',
             boxShadow: `inset 0 0 0 .5px ${"var(--mol_theme_line)"}`,
             ':focus': {
@@ -2940,6 +2941,8 @@ var $;
                 minHeight: calc(`1.5em + 2rem`),
                 padding: rem(.5),
                 background: "var(--mol_theme_back)",
+                boxShadow: `0 0 .5rem hsla(0,0%,0%,.25)`,
+                zIndex: '0',
             },
             Title: {
                 flex: {
@@ -2978,6 +2981,8 @@ var $;
                 margin: 0,
                 overflow: 'hidden',
                 background: "var(--mol_theme_back)",
+                boxShadow: `0 0 .5rem hsla(0,0%,0%,.25)`,
+                zIndex: '1',
             },
         });
     })($$ = $.$$ || ($.$$ = {}));
@@ -4047,7 +4052,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $.$mol_style_attach("hyoo/showcase/showcase.view.css", "[hyoo_showcase] {\n\tdisplay: flex;\n\tbackground: var(--mol_theme_field);\n}\n\n[hyoo_showcase_scroll] {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tpadding: .5rem;\n}\n\n[hyoo_showcase_app] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex: 1 1 26rem;\n\tmargin: 0;\n\theight: 15.5rem;\n\tcursor: pointer;\n}\n\n[hyoo_showcase_app]:hover {\n\t/* opacity: .9; */\n}\n\n[hyoo_showcase_app_demo] {\n\tpointer-events: none;\n\tbox-shadow: 0 0 0 2px var(--mol_theme_line);\n\twidth: 200%;\n\theight: 26rem;\n\ttransform: translate( -25% , -25% ) scale( .5 );\n\tbackground-size: cover;\n}\n\n[hyoo_showcase_offer_link] {\n\tpadding: 0;\n}\n");
+    $.$mol_style_attach("hyoo/showcase/showcase.view.css", "[hyoo_showcase] {\n\tdisplay: flex;\n\tbackground: var(--mol_theme_field);\n}\n\n[hyoo_showcase_scroll] {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tpadding: .5rem;\n}\n\n[hyoo_showcase_app] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex: 1 1 26rem;\n\tmargin: 0;\n\theight: 16rem;\n\tcursor: pointer;\n}\n\n[hyoo_showcase_app]:hover {\n\t/* opacity: .9; */\n}\n\n[hyoo_showcase_app_demo] {\n\tpointer-events: none;\n\tbox-shadow: 0 0 0 2px var(--mol_theme_line);\n\twidth: 200%;\n\theight: 26rem;\n\ttransform: translate( -25% , -25% ) scale( .5 );\n\tbackground-size: cover;\n}\n\n[hyoo_showcase_offer_link] {\n\tpadding: 0;\n}\n");
 })($ || ($ = {}));
 //showcase.view.css.js.map
 ;
