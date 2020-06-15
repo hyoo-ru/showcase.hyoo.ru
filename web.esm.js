@@ -2159,7 +2159,9 @@ var $;
             const nodes = sub.map(child => {
                 if (child == null)
                     return null;
-                return (child instanceof $mol_view) ? child.dom_node_actual() : String(child);
+                return (child instanceof $mol_view)
+                    ? child.dom_node()
+                    : String(child);
             });
             $.$mol_dom_render_children(node, nodes);
             for (const el of sub)
@@ -4263,7 +4265,7 @@ var $;
         App_tree() {
             return ((obj) => {
                 obj.title = () => this.app_tree_title();
-                obj.details = () => "https://tree.hyoo.ru/";
+                obj.details = () => "https://tree.hyoo.ru/#compile";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
