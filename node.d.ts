@@ -1328,8 +1328,6 @@ declare namespace $ {
         app_notes_title(): string;
         App_todomvc(): $$.$hyoo_showcase_app;
         app_todomvc_title(): string;
-        App_supplies(): $$.$hyoo_showcase_app;
-        app_supplies_title(): string;
         App_life(): $$.$hyoo_showcase_app;
         app_life_title(): string;
         App_habhub(): $$.$hyoo_showcase_app;

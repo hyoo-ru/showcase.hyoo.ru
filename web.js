@@ -4083,7 +4083,7 @@ var $;
             })(new this.$.$mol_scroll());
         }
         apps() {
-            return [this.App_widgets(), this.App_scout(), this.App_piterjs(), this.App_toys(), this.App_calc(), this.App_notes(), this.App_todomvc(), this.App_supplies(), this.App_life(), this.App_habhub(), this.App_questions(), this.App_slides(), this.App_lamps(), this.App_rdf(), this.App_bench(), this.App_request(), this.App_jsperf(), this.App_issues(), this.App_tree(), this.App_icons(), this.App_portal()];
+            return [this.App_widgets(), this.App_scout(), this.App_piterjs(), this.App_toys(), this.App_calc(), this.App_notes(), this.App_todomvc(), this.App_life(), this.App_habhub(), this.App_questions(), this.App_slides(), this.App_lamps(), this.App_rdf(), this.App_bench(), this.App_request(), this.App_jsperf(), this.App_issues(), this.App_tree(), this.App_icons(), this.App_portal()];
         }
         App_widgets() {
             return ((obj) => {
@@ -4154,16 +4154,6 @@ var $;
         }
         app_todomvc_title() {
             return this.$.$mol_locale.text("$hyoo_showcase_app_todomvc_title");
-        }
-        App_supplies() {
-            return ((obj) => {
-                obj.title = () => this.app_supplies_title();
-                obj.details = () => "https://mol.js.org/app/supplies/-/#entered/supply=75BCD15";
-                return obj;
-            })(new this.$.$hyoo_showcase_app());
-        }
-        app_supplies_title() {
-            return this.$.$mol_locale.text("$hyoo_showcase_app_supplies_title");
         }
         App_life() {
             return ((obj) => {
@@ -4328,9 +4318,6 @@ var $;
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_todomvc", null);
-    __decorate([
-        $.$mol_mem
-    ], $hyoo_showcase.prototype, "App_supplies", null);
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_life", null);
