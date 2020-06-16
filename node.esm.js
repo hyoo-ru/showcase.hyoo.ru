@@ -4218,7 +4218,7 @@ var $;
         App_piterjs() {
             return ((obj) => {
                 obj.title = () => this.app_piterjs_title();
-                obj.details = () => "https://piterjs.org/#meetup=40/speech=slides";
+                obj.details = () => "https://piterjs.org/";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
