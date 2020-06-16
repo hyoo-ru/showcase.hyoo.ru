@@ -2325,12 +2325,16 @@ var $;
             const node = this.dom_node(next);
             try {
                 $.$mol_dom_render_attributes(node, { mol_view_error: null });
-                for (let plugin of this.plugins()) {
-                    if (plugin instanceof $.$mol_plugin) {
-                        plugin.render();
+                try {
+                    this.render();
+                }
+                finally {
+                    for (let plugin of this.plugins()) {
+                        if (plugin instanceof $.$mol_plugin) {
+                            plugin.dom_tree();
+                        }
                     }
                 }
-                this.render();
             }
             catch (error) {
                 const need_catch = $.$mol_fail_catch(error);
@@ -3998,6 +4002,7 @@ var $;
                     background: {
                         color: $.$mol_theme.back,
                     },
+                    color: $.$mol_theme.text,
                 }
             }
         },
@@ -4213,7 +4218,7 @@ var $;
         App_piterjs() {
             return ((obj) => {
                 obj.title = () => this.app_piterjs_title();
-                obj.details = () => "https://piterjs.org/#meetup=40";
+                obj.details = () => "https://piterjs.org/#meetup=40/speech=slides";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
