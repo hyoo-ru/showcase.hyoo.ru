@@ -4193,7 +4193,7 @@ var $;
             })(new this.$.$mol_scroll());
         }
         apps() {
-            return [this.App_widgets(), this.App_scout(), this.App_piterjs(), this.App_toys(), this.App_calc(), this.App_notes(), this.App_todomvc(), this.App_life(), this.App_habhub(), this.App_questions(), this.App_slides(), this.App_lamps(), this.App_rdf(), this.App_bench(), this.App_request(), this.App_jsperf(), this.App_issues(), this.App_tree(), this.App_icons(), this.App_portal()];
+            return [this.App_widgets(), this.App_scout(), this.App_piterjs(), this.App_toys(), this.App_calc(), this.App_notes(), this.App_todomvc(), this.App_life(), this.App_habhub(), this.App_questions(), this.App_slides(), this.App_rdf(), this.App_bench(), this.App_request(), this.App_jsperf(), this.App_issues(), this.App_tree(), this.App_icons(), this.App_portal()];
         }
         App_widgets() {
             return ((obj) => {
@@ -4304,17 +4304,6 @@ var $;
         }
         app_slides_title() {
             return this.$.$mol_locale.text("$hyoo_showcase_app_slides_title");
-        }
-        App_lamps() {
-            return ((obj) => {
-                obj.title = () => this.app_lamps_title();
-                obj.details = () => "http://lamps.hyoo.ru/#lamp=1";
-                obj.preview = () => "https://habrastorage.org/webt/db/4p/vm/db4pvmn90ukqz1qruyafchxqk0m.png";
-                return obj;
-            })(new this.$.$hyoo_showcase_app());
-        }
-        app_lamps_title() {
-            return this.$.$mol_locale.text("$hyoo_showcase_app_lamps_title");
         }
         App_rdf() {
             return ((obj) => {
@@ -4440,9 +4429,6 @@ var $;
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_slides", null);
-    __decorate([
-        $.$mol_mem
-    ], $hyoo_showcase.prototype, "App_lamps", null);
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_rdf", null);
