@@ -4199,7 +4199,6 @@ var $;
             return ((obj) => {
                 obj.title = () => this.app_rdf_title();
                 obj.details = () => "http://rdf.hyoo.ru/#uri=http%3A%2F%2Fdbpedia.org%2Fontology%2Fhead";
-                obj.preview = () => "https://hsto.org/webt/ig/kl/ke/igklkep4oi5sd0nzwr2oc9scfj4.png";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
