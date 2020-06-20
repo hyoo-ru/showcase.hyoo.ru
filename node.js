@@ -4338,7 +4338,7 @@ var $;
         App_jsperf() {
             return ((obj) => {
                 obj.title = () => this.app_jsperf_title();
-                obj.details = () => "https://jsperf.hyoo.ru/#sources=%5B%22window.location.href%3B%22%2C%22document.location.href%3B%22%5D/prefix/postfix/optimized=true";
+                obj.details = () => "https://perf.js.hyoo.ru/#sources=%5B%22window.location.href%3B%22%2C%22document.location.href%3B%22%5D/prefix/postfix/optimized=true";
                 return obj;
             })(new this.$.$hyoo_showcase_app());
         }
