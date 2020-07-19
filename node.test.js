@@ -4567,6 +4567,7 @@ var $;
         }
         Demo() {
             return ((obj) => {
+                obj.minimal_height = () => 250;
                 obj.style = () => ({
                     "background-image": this.background(),
                 });
@@ -4591,7 +4592,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $.$mol_style_attach("hyoo/showcase/showcase.view.css", "[hyoo_showcase] {\n\tdisplay: flex;\n\tbackground: var(--mol_theme_field);\n}\n\n[hyoo_showcase_scroll] {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tpadding: .5rem;\n}\n\n[hyoo_showcase_app] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex: 1 1 26rem;\n\tmargin: 0;\n\theight: 16rem;\n\tcursor: pointer;\n}\n\n[hyoo_showcase_app]:hover {\n\t/* opacity: .9; */\n}\n\n[hyoo_showcase_app_demo] {\n\tpointer-events: none;\n\tbox-shadow: 0 0 0 2px var(--mol_theme_line);\n\twidth: 200%;\n\theight: 26rem;\n\ttransform: translate( -25% , -25% ) scale( .5 );\n\tbackground-size: cover;\n}\n\n[hyoo_showcase_offer_link] {\n\tpadding: 0;\n}\n");
+    $.$mol_style_attach("hyoo/showcase/showcase.view.css", "[hyoo_showcase] {\n\tdisplay: flex;\n\tbackground: var(--mol_theme_field);\n}\n\n[hyoo_showcase_scroll] {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tpadding: .5rem;\n}\n\n[hyoo_showcase_app] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex: 1 1 26rem;\n\tmargin: 0;\n\theight: 16rem;\n\tcursor: pointer;\n}\n\n[hyoo_showcase_app]:hover {\n\t/* opacity: .9; */\n}\n\n[hyoo_showcase_app_title] {\n\tflex: none;\n}\n\n[hyoo_showcase_app_demo] {\n\tpointer-events: none;\n\tbox-shadow: 0 0 0 2px var(--mol_theme_line);\n\twidth: 200%;\n\theight: 26rem;\n\ttransform: translate( -25% , -25% ) scale( .5 );\n\tbackground-size: cover;\n}\n\n[hyoo_showcase_offer_link] {\n\tpadding: 0;\n}\n");
 })($ || ($ = {}));
 //showcase.view.css.js.map
 ;
