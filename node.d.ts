@@ -1390,6 +1390,8 @@ declare namespace $ {
         app_questions_title(): string;
         App_slides(): $$.$hyoo_showcase_app;
         app_slides_title(): string;
+        App_iq(): $$.$hyoo_showcase_app;
+        app_iq_title(): string;
         App_rdf(): $$.$hyoo_showcase_app;
         app_rdf_title(): string;
         App_bench(): $$.$hyoo_showcase_app;
