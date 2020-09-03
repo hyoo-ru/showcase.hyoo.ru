@@ -906,20 +906,20 @@ declare namespace $ {
             click: (event?: any) => any;
             keypress: (event?: any) => any;
         };
-        event_activate(event?: any): any;
-        event_key_press(event?: any): any;
         attr(): {
             disabled: boolean;
             role: string;
             tabindex: number;
             title: string;
         };
-        disabled(): boolean;
-        tab_index(): number;
-        hint_or_error(): string;
-        hint(): string;
         sub(): readonly $mol_view_content[];
         Speck(): $mol_speck;
+        event_activate(event?: any): any;
+        event_key_press(event?: any): any;
+        disabled(): boolean;
+        tab_index(): number;
+        hint(): string;
+        hint_or_error(): string;
     }
 }
 
@@ -1053,12 +1053,12 @@ declare namespace $ {
             scrollLeft: any;
             tabIndex: number;
         };
-        scroll_top(val?: any): any;
-        scroll_left(val?: any): any;
-        tabindex(): number;
         event(): {
             scroll: (event?: any) => any;
         };
+        scroll_top(val?: any): any;
+        scroll_left(val?: any): any;
+        tabindex(): number;
         event_scroll(event?: any): any;
     }
 }
@@ -1092,17 +1092,17 @@ declare namespace $.$$ {
 declare namespace $ {
     class $mol_page extends $mol_view {
         sub(): readonly any[];
-        Head(): $mol_view;
-        head(): readonly any[];
-        Title(): $$.$mol_button;
         event_top(val?: any): any;
-        Tools(): $mol_view;
+        Title(): $$.$mol_button;
         tools(): readonly $mol_view_content[];
-        Body(): $$.$mol_scroll;
+        Tools(): $mol_view;
+        head(): readonly any[];
+        Head(): $mol_view;
         body_scroll_top(val?: any): any;
         body(): readonly $mol_view_content[];
-        Foot(): $mol_view;
+        Body(): $$.$mol_scroll;
         foot(): readonly $mol_view[];
+        Foot(): $mol_view;
     }
 }
 
@@ -1244,6 +1244,29 @@ declare namespace $ {
 }
 
 declare namespace $ {
+    class $mol_button_typed extends $mol_button {
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+    class $mol_button_major extends $mol_button_typed {
+        attr(): {
+            mol_theme: string;
+            disabled: boolean;
+            role: string;
+            tabindex: number;
+            title: string;
+        };
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
     class $mol_link extends $mol_view {
         dom_name(): string;
         attr(): {
@@ -1254,19 +1277,19 @@ declare namespace $ {
             mol_link_current: boolean;
             mol_theme: any;
         };
+        sub(): readonly $mol_view_content[];
+        arg(): {};
+        event(): {
+            click: (event?: any) => any;
+        };
         uri(): string;
         hint(): string;
         target(): string;
         file_name(): string;
         current(): boolean;
         theme(): any;
-        sub(): readonly $mol_view_content[];
-        arg(): {};
-        event(): {
-            click: (event?: any) => any;
-        };
-        click(event?: any): any;
         event_click(event?: any): any;
+        click(event?: any): any;
     }
 }
 
@@ -1314,29 +1337,6 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-    class $mol_button_typed extends $mol_button {
-    }
-}
-
-declare namespace $ {
-}
-
-declare namespace $ {
-    class $mol_button_major extends $mol_button_typed {
-        attr(): {
-            mol_theme: string;
-            disabled: boolean;
-            role: string;
-            tabindex: number;
-            title: string;
-        };
-    }
-}
-
-declare namespace $ {
-}
-
-declare namespace $ {
     class $mol_demo_large extends $mol_view {
     }
 }
@@ -1371,63 +1371,63 @@ declare namespace $ {
         };
         title(): string;
         tools(): readonly any[];
-        Offer_link(): $$.$mol_link;
-        Offer_button(): $mol_button_major;
-        offer_title(): string;
         body(): readonly any[];
-        Scroll(): $$.$mol_scroll;
-        apps(): readonly any[];
-        App_widgets(): $$.$hyoo_showcase_app;
+        offer_title(): string;
+        Offer_button(): $mol_button_major;
+        Offer_link(): $$.$mol_link;
         app_widgets_title(): string;
-        App_scout(): $$.$hyoo_showcase_app;
+        App_widgets(): $$.$hyoo_showcase_app;
         app_scout_title(): string;
-        App_piterjs(): $$.$hyoo_showcase_app;
+        App_scout(): $$.$hyoo_showcase_app;
         app_piterjs_title(): string;
-        App_toys(): $$.$hyoo_showcase_app;
+        App_piterjs(): $$.$hyoo_showcase_app;
         app_toys_title(): string;
-        App_calc(): $$.$hyoo_showcase_app;
+        App_toys(): $$.$hyoo_showcase_app;
         app_calc_title(): string;
-        App_notes(): $$.$hyoo_showcase_app;
+        App_calc(): $$.$hyoo_showcase_app;
         app_notes_title(): string;
-        App_todomvc(): $$.$hyoo_showcase_app;
+        App_notes(): $$.$hyoo_showcase_app;
         app_todomvc_title(): string;
-        App_life(): $$.$hyoo_showcase_app;
+        App_todomvc(): $$.$hyoo_showcase_app;
         app_life_title(): string;
-        App_habhub(): $$.$hyoo_showcase_app;
+        App_life(): $$.$hyoo_showcase_app;
         app_habhub_title(): string;
-        App_questions(): $$.$hyoo_showcase_app;
+        App_habhub(): $$.$hyoo_showcase_app;
         app_questions_title(): string;
-        App_slides(): $$.$hyoo_showcase_app;
+        App_questions(): $$.$hyoo_showcase_app;
         app_slides_title(): string;
-        App_iq(): $$.$hyoo_showcase_app;
+        App_slides(): $$.$hyoo_showcase_app;
         app_iq_title(): string;
-        App_rdf(): $$.$hyoo_showcase_app;
+        App_iq(): $$.$hyoo_showcase_app;
         app_rdf_title(): string;
-        App_bench(): $$.$hyoo_showcase_app;
+        App_rdf(): $$.$hyoo_showcase_app;
         app_bench_title(): string;
-        App_request(): $$.$hyoo_showcase_app;
+        App_bench(): $$.$hyoo_showcase_app;
         app_request_title(): string;
-        App_jsperf(): $$.$hyoo_showcase_app;
+        App_request(): $$.$hyoo_showcase_app;
         app_jsperf_title(): string;
-        App_issues(): $$.$hyoo_showcase_app;
+        App_jsperf(): $$.$hyoo_showcase_app;
         app_issues_title(): string;
-        App_tree(): $$.$hyoo_showcase_app;
+        App_issues(): $$.$hyoo_showcase_app;
         app_tree_title(): string;
-        App_icons(): $$.$hyoo_showcase_app;
+        App_tree(): $$.$hyoo_showcase_app;
         app_icons_title(): string;
-        App_portal(): $$.$hyoo_showcase_app;
+        App_icons(): $$.$hyoo_showcase_app;
         app_portal_title(): string;
+        App_portal(): $$.$hyoo_showcase_app;
+        apps(): readonly any[];
+        Scroll(): $$.$mol_scroll;
     }
     class $hyoo_showcase_app extends $mol_link {
         target(): string;
         uri(): string;
-        details(): string;
         preview(): string;
         sub(): readonly any[];
-        Title(): $mol_view;
+        details(): string;
         title(): string;
-        Demo(): $mol_demo_ext;
+        Title(): $mol_view;
         background(): string;
+        Demo(): $mol_demo_ext;
     }
 }
 
@@ -1458,8 +1458,8 @@ declare namespace $ {
 declare namespace $ {
     class $mol_view_tree_test_binding extends $mol_view {
         value(val?: any): any;
-        task_title_new(val?: any): any;
         enabled(): boolean;
+        task_title_new(val?: any): any;
         head_complete_enabled(): boolean;
     }
 }
