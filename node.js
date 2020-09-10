@@ -4440,6 +4440,15 @@ var $;
             obj.details = () => "https://notes.hyoo.ru/#";
             return obj;
         }
+        app_invest_title() {
+            return this.$.$mol_locale.text('$hyoo_showcase_app_invest_title');
+        }
+        App_invest() {
+            const obj = new this.$.$hyoo_showcase_app();
+            obj.title = () => this.app_invest_title();
+            obj.details = () => "https://invest.hyoo.ru/";
+            return obj;
+        }
         app_todomvc_title() {
             return this.$.$mol_locale.text('$hyoo_showcase_app_todomvc_title');
         }
@@ -4574,6 +4583,7 @@ var $;
                 this.App_toys(),
                 this.App_calc(),
                 this.App_notes(),
+                this.App_invest(),
                 this.App_todomvc(),
                 this.App_life(),
                 this.App_habhub(),
@@ -4620,6 +4630,9 @@ var $;
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_notes", null);
+    __decorate([
+        $.$mol_mem
+    ], $hyoo_showcase.prototype, "App_invest", null);
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_todomvc", null);

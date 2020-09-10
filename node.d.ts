@@ -827,7 +827,7 @@ declare namespace $ {
                 blur: Length;
                 spread: Length;
                 color: Color;
-            }[];
+            }[] | 'none' | Common;
         };
         font?: {
             style?: 'normal' | 'italic' | Common;
@@ -1382,6 +1382,8 @@ declare namespace $ {
         App_calc(): $$.$hyoo_showcase_app;
         app_notes_title(): string;
         App_notes(): $$.$hyoo_showcase_app;
+        app_invest_title(): string;
+        App_invest(): $$.$hyoo_showcase_app;
         app_todomvc_title(): string;
         App_todomvc(): $$.$hyoo_showcase_app;
         app_life_title(): string;
