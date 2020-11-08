@@ -4201,6 +4201,15 @@ var $;
             obj.details = () => "https://piterjs.org/";
             return obj;
         }
+        app_shelter_title() {
+            return this.$.$mol_locale.text('$hyoo_showcase_app_shelter_title');
+        }
+        App_shelter() {
+            const obj = new this.$.$hyoo_showcase_app();
+            obj.title = () => this.app_shelter_title();
+            obj.details = () => "https://shelter.hyoo.ru/#login=user";
+            return obj;
+        }
         app_fallacy_title() {
             return this.$.$mol_locale.text('$hyoo_showcase_app_fallacy_title');
         }
@@ -4377,6 +4386,7 @@ var $;
                 this.App_widgets(),
                 this.App_scout(),
                 this.App_piterjs(),
+                this.App_shelter(),
                 this.App_fallacy(),
                 this.App_toys(),
                 this.App_calc(),
@@ -4419,6 +4429,9 @@ var $;
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_piterjs", null);
+    __decorate([
+        $.$mol_mem
+    ], $hyoo_showcase.prototype, "App_shelter", null);
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_fallacy", null);

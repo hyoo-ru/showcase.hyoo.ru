@@ -1396,6 +1396,8 @@ declare namespace $ {
         App_scout(): $$.$hyoo_showcase_app;
         app_piterjs_title(): string;
         App_piterjs(): $$.$hyoo_showcase_app;
+        app_shelter_title(): string;
+        App_shelter(): $$.$hyoo_showcase_app;
         app_fallacy_title(): string;
         App_fallacy(): $$.$hyoo_showcase_app;
         app_toys_title(): string;
