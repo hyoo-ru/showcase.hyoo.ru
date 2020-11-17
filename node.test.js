@@ -1522,10 +1522,11 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    function $mol_atom2_value(task) {
+    function $mol_atom2_value(task, next) {
         const cached = $mol_atom2.cached;
         try {
             $mol_atom2.cached = true;
+            $mol_atom2.cached_next = next;
             return task();
         }
         finally {
@@ -1573,8 +1574,13 @@ var $;
             return promise.then(obsolete, obsolete);
         }
         get() {
-            if ($mol_atom2.cached)
+            if ($mol_atom2.cached) {
+                if ($mol_atom2.cached_next !== undefined) {
+                    this.push($mol_atom2.cached_next);
+                    $mol_atom2.cached_next = undefined;
+                }
                 return this.value;
+            }
             const value = super.get();
             if (value === undefined)
                 $.$mol_fail(new Error(`Not defined: ${this}`));
@@ -1780,6 +1786,7 @@ var $;
     }
     $mol_atom2.logs = false;
     $mol_atom2.cached = false;
+    $mol_atom2.cached_next = undefined;
     $mol_atom2.reap_task = null;
     $mol_atom2.reap_queue = [];
     $.$mol_atom2 = $mol_atom2;
@@ -2564,6 +2571,47 @@ var $;
         [$.$mol_dev_format_head]() {
             return $.$mol_dev_format_span({}, $.$mol_dev_format_native(this), $.$mol_dev_format_shade('/'), $.$mol_dev_format_auto($.$mol_mem_cached(() => this.sub())));
         }
+        *view_find(check, path = []) {
+            path = [...path, this];
+            if (check('', path))
+                return yield this;
+            for (const item of this.sub()) {
+                if (item instanceof $mol_view) {
+                    yield* item.view_find(check, path);
+                }
+            }
+        }
+        force_render(path) {
+            const kids = this.sub();
+            const index = kids.findIndex(item => {
+                if (item instanceof $mol_view) {
+                    return path.has(item);
+                }
+                else {
+                    return false;
+                }
+            });
+            if (index >= 0) {
+                kids[index].force_render(path);
+            }
+            return index;
+        }
+        ensure_visible(view) {
+            this.view_find((_, path) => {
+                if (path[path.length - 1] !== view)
+                    return false;
+                $.$mol_fiber_defer(() => {
+                    this.force_render(new Set(path));
+                    $.$mol_fiber_defer(() => {
+                        view.dom_node().scrollIntoView({
+                            block: 'center',
+                            inline: 'center',
+                        });
+                    });
+                });
+                return true;
+            }).next().value;
+        }
     }
     $mol_view.watchers = new Set();
     __decorate([
@@ -2952,7 +3000,7 @@ var $;
             return null;
         }
         event() {
-            return Object.assign(Object.assign({}, super.event()), { click: (event) => this.event_activate(event), keypress: (event) => this.event_key_press(event) });
+            return Object.assign(Object.assign({}, super.event()), { click: (event) => this.event_activate(event), keydown: (event) => this.event_key_press(event) });
         }
         attr() {
             return Object.assign(Object.assign({}, super.attr()), { disabled: this.disabled(), role: "button", tabindex: this.tab_index(), title: this.hint_or_error() });
@@ -4547,7 +4595,7 @@ var $;
         App_bench() {
             const obj = new this.$.$hyoo_showcase_app();
             obj.title = () => this.app_bench_title();
-            obj.details = () => "https://bench.hyoo.ru/#bench=https%3A%2F%2Feigenmethod.github.io%2Ftodomvc%2Fbenchmark%2F/sort=fill";
+            obj.details = () => "https://bench.hyoo.ru/#bench=https%3A%2F%2Fhyoo-ru.github.io%2Ftodomvc%2Fbenchmark%2F/sort=fill";
             return obj;
         }
         app_request_title() {
@@ -4556,7 +4604,7 @@ var $;
         App_request() {
             const obj = new this.$.$hyoo_showcase_app();
             obj.title = () => this.app_request_title();
-            obj.details = () => "https://http.hyoo.ru/#uri=https%3A%2F%2Fapi.github.com%2Frepos%2Feigenmethod%2Fmol";
+            obj.details = () => "https://http.hyoo.ru/#uri=https%3A%2F%2Fapi.github.com%2Frepos%2Fhyoo-ru%2Fmam_mol";
             return obj;
         }
         app_jsperf_title() {
@@ -4574,7 +4622,7 @@ var $;
         App_issues() {
             const obj = new this.$.$hyoo_showcase_app();
             obj.title = () => this.app_issues_title();
-            obj.details = () => "https://compare.github.hyoo.ru/#projects=eigenmethod%2Fmol%2Cfacebook%2Freact%2Cvuejs%2Fvue";
+            obj.details = () => "https://compare.github.hyoo.ru/#projects=hyoo-ru%2Fmam_mol%2Cfacebook%2Freact%2Cvuejs%2Fvue";
             return obj;
         }
         app_tree_title() {
