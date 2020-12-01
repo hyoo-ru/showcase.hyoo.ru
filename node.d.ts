@@ -1428,6 +1428,8 @@ declare namespace $ {
         App_iq(): $$.$hyoo_showcase_app;
         app_rdf_title(): string;
         App_rdf(): $$.$hyoo_showcase_app;
+        app_lamps_title(): string;
+        App_lamps(): $$.$hyoo_showcase_app;
         app_bench_title(): string;
         App_bench(): $$.$hyoo_showcase_app;
         app_request_title(): string;

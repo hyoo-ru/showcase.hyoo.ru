@@ -4585,6 +4585,15 @@ var $;
             obj.details = () => "http://rdf.hyoo.ru/#uri=http%3A%2F%2Fdbpedia.org%2Fontology%2Fhead";
             return obj;
         }
+        app_lamps_title() {
+            return this.$.$mol_locale.text('$hyoo_showcase_app_lamps_title');
+        }
+        App_lamps() {
+            const obj = new this.$.$hyoo_showcase_app();
+            obj.title = () => this.app_lamps_title();
+            obj.details = () => "https://lamps.hyoo.ru/#lamp=1";
+            return obj;
+        }
         app_bench_title() {
             return this.$.$mol_locale.text('$hyoo_showcase_app_bench_title');
         }
@@ -4666,6 +4675,7 @@ var $;
                 this.App_slides(),
                 this.App_iq(),
                 this.App_rdf(),
+                this.App_lamps(),
                 this.App_bench(),
                 this.App_request(),
                 this.App_jsperf(),
@@ -4735,6 +4745,9 @@ var $;
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_rdf", null);
+    __decorate([
+        $.$mol_mem
+    ], $hyoo_showcase.prototype, "App_lamps", null);
     __decorate([
         $.$mol_mem
     ], $hyoo_showcase.prototype, "App_bench", null);
