@@ -24,5 +24,6 @@
 	"$hyoo_showcase_app_tree_title": "view.tree компилятор",
 	"$hyoo_showcase_app_widgets_title": "$mol компоненты",
 	"$hyoo_showcase_offer_title": "Заказать",
-	"$hyoo_showcase_title": "Приложения на $mol"
+	"$hyoo_showcase_title": "Приложения на $mol",
+	"$mol_link_source_hint": "Исходные коды"
 }
