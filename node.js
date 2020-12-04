@@ -4650,7 +4650,7 @@ var $;
         }
         Offer_link() {
             const obj = new this.$.$mol_link();
-            obj.uri = () => "https://hyoo.ru";
+            obj.uri = () => "https://offer.hyoo.ru";
             obj.sub = () => [
                 this.Offer_button()
             ];
