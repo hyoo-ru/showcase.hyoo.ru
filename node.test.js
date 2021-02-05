@@ -4910,7 +4910,7 @@ var $;
         App_tree() {
             const obj = new this.$.$hyoo_showcase_app();
             obj.title = () => this.app_tree_title();
-            obj.details = () => "https://tree.hyoo.ru/#compile";
+            obj.details = () => "https://tree.hyoo.ru/#pipeline=%24mol_tree2_from_string~%24mol_jack_transform~%24mol_tree2_js_to_text~%24mol_tree2_text_to_string~%24mol_js_eval/source=hack%20%2Bpipe%0A%09hack%20%7C%3E%20var%0A%09%09pipe%0A%09%09from%0A%09hack%20%3C%7C%20pipe%0A%09from%0A%0Ahack%20%2Bmath%0A%09hack%20square%20%28**%29%0A%09%09%3C%7C%0A%09%092%0A%09hack%20next%20%28%2B%29%0A%09%09%3C%7C%0A%09%091%0A%09from%0A%0Ahack%20%2Bdebug%0A%09hack%20log%20%28%29%0A%09%09console%0A%09%09%5B%5D%20%5Clog%0A%09%09%28%2C%29%20from%0A%09from%0A%0A%2Bpipe%20%2Bmath%20%2Bdebug%20%7B%3B%7D%0A%09%7C%3E%203%0A%09%7C%3E%20square%0A%09%7C%3E%20next%0A%09log%20%3C%7C%0A%09return%20%3C%7C%0A";
             return obj;
         }
         app_icons_title() {
