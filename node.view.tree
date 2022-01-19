@@ -91,6 +91,7 @@ $mol_speck $mol_view
 $mol_button $mol_view
 	enabled true
 	minimal_height 40
+	minimal_width 40
 	click?event null
 	event_click?event null
 	event *
@@ -114,13 +115,30 @@ $mol_button_major $mol_button_typed
 		^
 		mol_theme \$mol_theme_accent
 
-$mol_demo_large $mol_view
-
-$mol_demo_ext $mol_demo_large
+$mol_embed_native $mol_scroll
 	dom_name \object
+	window null
 	attr *
 		^
-		data <= uri \
+		data <= uri?val \
+		type <= mime \
+	sub /
+		<= title?val \
+
+$mol_frame $mol_embed_native
+	dom_name \iframe
+	attr *
+		data null
+		type null
+		src <= uri?val \
+		srcdoc <= html null
+		allow <= allow \
+	fullscreen true
+	accelerometer true
+	autoplay true
+	encription true
+	gyroscope true
+	pip true
 
 $hyoo_showcase $mol_page
 	attr * mol_theme \$mol_theme_dark
@@ -212,43 +230,7 @@ $hyoo_showcase_app $mol_link
 	preview \
 	sub /
 		<= Title $mol_view sub / <= title \
-		<= Demo $mol_demo_ext
+		<= Demo $mol_frame
 			minimal_height 250
 			style * background-image <= background \
 			uri <= details \
-
-$mol_view_tree_test_attributes_super $mol_view
-	some *
-		a 0
-		b 2
-
-$mol_view_tree_test_attributes $mol_view_tree_test_attributes_super
-	some *
-		^
-		a 1
-
-$mol_view_tree_test_binding $mol_view
-	value?val <=> task_title_new?val \123
-	enabled <= head_complete_enabled false
-
-$mol_view_tree_test_binding_right $mol_view
-	Test $mol_view_tree_test_binding_right_test
-		width?v => outer_width?v
-
-$mol_view_tree_test_binding_right_test $mol_view
-	width?val 0
-
-$mol_view_tree_test_simple $mol_view
-	some 1
-	bool true
-	str \test
-	arr /
-	arr_string /string
-
-$mol_view_tree_test_attributes_subcomponent $mol_view
-	- Comment
-	Page!index $mol_view_tree_test_attributes_subcomponent_page
-		Sub <= page!index null
-
-$mol_view_tree_test_attributes_subcomponent_page $mol_view
-	Sub null
