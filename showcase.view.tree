@@ -88,7 +88,7 @@ $hyoo_showcase_app $mol_link
 	preview \
 	sub /
 		<= Title $mol_view sub / <= title \
-		<= Demo $mol_demo_ext
+		<= Demo $mol_frame
 			minimal_height 250
 			style * background-image <= background \
 			uri <= details \
