@@ -157,8 +157,8 @@
     "$mol_frame_frame.view.tree"
   ],
   "dependencies": {
-    "jsdom": "*",
     "colorette": "*",
+    "jsdom": "*",
     "chokidar": "*"
   }
 }
