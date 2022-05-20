@@ -1336,6 +1336,22 @@ declare namespace $ {
 }
 
 declare namespace $ {
+    class $mol_image extends $mol_view {
+        dom_name(): string;
+        field(): {
+            src: string;
+            alt: string;
+            loading: string;
+        };
+        uri(): string;
+        loading(): string;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
     class $mol_embed_native extends $mol_scroll {
         dom_name(): string;
         window(): any;
@@ -1347,7 +1363,8 @@ declare namespace $ {
         uri(val?: any): string;
         mime(): string;
         title(val?: any): string;
-        Fallback(): $$.$mol_link;
+        Fallback_image(): $mol_image;
+        Fallback_link(): $$.$mol_link;
     }
 }
 
