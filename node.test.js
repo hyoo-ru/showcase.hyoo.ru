@@ -4275,6 +4275,7 @@ var $;
             return {
                 ...super.event(),
                 click: (event) => this.event_activate(event),
+                dblclick: (event) => this.clicks(event),
                 keydown: (event) => this.event_key_press(event)
             };
         }
@@ -4298,6 +4299,11 @@ var $;
             return obj;
         }
         event_activate(event) {
+            if (event !== undefined)
+                return event;
+            return null;
+        }
+        clicks(event) {
             if (event !== undefined)
                 return event;
             return null;
@@ -4332,6 +4338,9 @@ var $;
     __decorate([
         $mol_mem
     ], $mol_button.prototype, "event_activate", null);
+    __decorate([
+        $mol_mem
+    ], $mol_button.prototype, "clicks", null);
     __decorate([
         $mol_mem
     ], $mol_button.prototype, "event_key_press", null);
