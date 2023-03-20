@@ -15,7 +15,6 @@
 	flex-direction: column;
 	flex: 1 1 26rem;
 	margin: 0;
-	height: 16rem;
 	cursor: pointer;
 }
 
@@ -32,7 +31,6 @@
 	box-shadow: 0 0 0 2px var(--mol_theme_line);
 	width: 200%;
 	height: 26rem;
-	transform: translate( -25% , -25% ) scale( .5 );
 	background-size: cover;
 }
 
