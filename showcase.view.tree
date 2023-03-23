@@ -1,7 +1,10 @@
 $hyoo_showcase $mol_page
+	plugins /
+		<= Theme $mol_theme_auto
 	attr * mol_theme \$mol_theme_dark
 	title @ \$mol applications
 	tools /
+		<= Lights $mol_lights_toggle
 		<= Source $mol_link_source uri \https://github.com/hyoo-ru/showcase.hyoo.ru
 		<= Offer_link $mol_link
 			uri \https://offer.hyoo.ru

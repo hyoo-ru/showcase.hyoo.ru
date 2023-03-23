@@ -1,6 +1,5 @@
 [hyoo_showcase] {
 	display: flex;
-	background: var(--mol_theme_field);
 }
 
 [hyoo_showcase_scroll] {
