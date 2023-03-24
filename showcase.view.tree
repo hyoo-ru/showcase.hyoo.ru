@@ -1,7 +1,10 @@
 $hyoo_showcase $mol_page
+	plugins /
+		<= Theme $mol_theme_auto
 	attr * mol_theme \$mol_theme_dark
 	title @ \$mol applications
 	tools /
+		<= Lights $mol_lights_toggle
 		<= Source $mol_link_source uri \https://github.com/hyoo-ru/showcase.hyoo.ru
 		<= Offer_link $mol_link
 			uri \https://offer.hyoo.ru
@@ -11,7 +14,7 @@ $hyoo_showcase $mol_page
 	body / <= Scroll $mol_scroll sub <= apps /
 		<= App_widgets $hyoo_showcase_app
 			title <= app_widgets_title @ \$mol components
-			details \https://mol.js.org/app/demo/-/
+			details \https://mol.hyoo.ru/#!section=demos
 		<= App_scout $hyoo_showcase_app
 			title <= app_scout_title @ \Scout games
 			details \https://scout.hyoo.ru/#gist=%D0%A1%D1%82%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D1%82%D0%B5%D0%BD%D0%BA%D1%83
@@ -88,7 +91,7 @@ $hyoo_showcase_app $mol_link
 	preview \
 	sub /
 		<= Title $mol_view sub / <= title \
-		<= Demo $mol_frame
-			minimal_height 250
-			style * background-image <= background \
-			uri <= details \
+		<= Container $mol_view sub /
+			<= Demo $mol_frame
+				style * background-image <= background \
+				uri <= details \
