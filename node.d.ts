@@ -54,6 +54,7 @@ declare namespace $ {
 declare namespace $ {
     class $mol_object2 {
         static $: typeof $$;
+        [Symbol.toStringTag]: string;
         [$mol_ambient_ref]: typeof $$;
         get $(): $;
         set $(next: $);
@@ -204,6 +205,7 @@ declare namespace $ {
         static plan_task: $mol_after_frame | null;
         static plan(): void;
         static sync(): void;
+        [Symbol.toStringTag]: string;
         cache: Result | Error | Promise<Result | Error>;
         get args(): Args;
         result(): Result | undefined;
@@ -211,8 +213,8 @@ declare namespace $ {
         constructor(id: string, task: (this: Host, ...args: Args) => Result, host?: Host | undefined, args?: Args);
         plan(): void;
         reap(): void;
-        toString(): any;
-        toJSON(): any;
+        toString(): string;
+        toJSON(): string;
         get $(): any;
         emit(quant?: $mol_wire_cursor): void;
         fresh(): void;
@@ -246,7 +248,7 @@ declare namespace $ {
     class $mol_wire_task<Host, Args extends readonly unknown[], Result> extends $mol_wire_fiber<Host, Args, Result> {
         static getter<Host, Args extends readonly unknown[], Result>(task: (this: Host, ...args: Args) => Result): (host: Host, args: Args) => $mol_wire_task<Host, [...Args], Result>;
         complete(): void;
-        put(next: Result | Error | Promise<Result | Error>): Error | Result | Promise<Error | Result>;
+        put(next: Result | Error | Promise<Result | Error>): Result | Error | Promise<Result | Error>;
     }
 }
 
@@ -359,7 +361,7 @@ declare namespace $ {
         static begin(uri: string, source?: string): $mol_span;
         static end(uri: string, source: string): $mol_span;
         static entire(uri: string, source: string): $mol_span;
-        toString(): any;
+        toString(): string;
         toJSON(): {
             uri: string;
             row: number;
@@ -1074,6 +1076,130 @@ declare namespace $ {
 }
 
 declare namespace $ {
+    function $mol_wire_sync<Host extends object>(obj: Host): (Host extends (...args: infer Args) => infer Res ? Res extends Promise<infer Res2> ? (...args: Args) => Res2 : Host : {}) & { [key in keyof Host]: Host[key] extends (...args: infer Args_1) => Promise<infer Res_1> ? (...args: Args_1) => Res_1 : Host[key]; };
+}
+
+declare namespace $ {
+    type $mol_data_value<Input = any, Output = any> = (val: Input) => Output;
+}
+
+declare namespace $ {
+    type $mol_type_equals<A, B> = (<X>() => X extends A ? 1 : 2) extends (<X>() => X extends B ? 1 : 2) ? unknown : never;
+}
+
+declare namespace $ {
+    type $mol_type_merge<Intersection> = Intersection extends (...a: any[]) => any ? Intersection : Intersection extends new (...a: any[]) => any ? Intersection : Intersection extends object ? $mol_type_merge_object<Intersection> extends Intersection ? unknown extends $mol_type_equals<$mol_type_merge_object<Intersection>, Intersection> ? Intersection : {
+        [Key in keyof Intersection]: $mol_type_merge<Intersection[Key]>;
+    } : Intersection : Intersection;
+    type $mol_type_merge_object<Intersection> = {
+        [Key in keyof Intersection]: Intersection[Key];
+    };
+}
+
+declare namespace $ {
+    type $mol_type_partial_undefined<Val> = $mol_type_merge<Partial<Val> & Pick<Val, {
+        [Field in keyof Val]: undefined extends Val[Field] ? never : Field;
+    }[keyof Val]>>;
+}
+
+declare namespace $ {
+    function $mol_data_setup<Value extends $mol_data_value, Config = never>(value: Value, config: Config): Value & {
+        config: Config;
+        Value: ReturnType<Value>;
+    };
+}
+
+declare namespace $ {
+    function $mol_data_record<Sub extends Record<string, $mol_data_value>>(sub: Sub): ((val: $mol_type_merge<Partial<{ [key in keyof Sub]: Parameters<Sub[key]>[0]; }> & Pick<{ [key in keyof Sub]: Parameters<Sub[key]>[0]; }, ({ [key in keyof Sub]: Parameters<Sub[key]>[0]; } extends infer T ? { [Field in keyof T]: undefined extends { [key in keyof Sub]: Parameters<Sub[key]>[0]; }[Field] ? never : Field; } : never)[keyof Sub]>>) => Readonly<$mol_type_merge<Partial<{ [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; }> & Pick<{ [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; }, ({ [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; } extends infer T_1 ? { [Field_1 in keyof T_1]: undefined extends { [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; }[Field_1] ? never : Field_1; } : never)[keyof Sub]>>>) & {
+        config: Sub;
+        Value: Readonly<$mol_type_merge<Partial<{ [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; }> & Pick<{ [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; }, ({ [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; } extends infer T_2 ? { [Field_1 in keyof T_2]: undefined extends { [key_1 in keyof Sub]: ReturnType<Sub[key_1]>; }[Field_1] ? never : Field_1; } : never)[keyof Sub]>>>;
+    };
+}
+
+declare namespace $ {
+    function $mol_diff_path<Item>(...paths: Item[][]): {
+        prefix: Item[];
+        suffix: Item[][];
+    };
+}
+
+declare namespace $ {
+    class $mol_error_mix extends Error {
+        errors: Error[];
+        constructor(message: string, ...errors: Error[]);
+        toJSON(): string;
+    }
+}
+
+declare namespace $ {
+    class $mol_data_error extends $mol_error_mix {
+    }
+}
+
+declare namespace $ {
+    function $mol_data_array<Sub extends $mol_data_value>(sub: Sub): ((val: readonly Parameters<Sub>[0][]) => readonly ReturnType<Sub>[]) & {
+        config: Sub;
+        Value: readonly ReturnType<Sub>[];
+    };
+}
+
+declare namespace $ {
+    let $mol_data_string: (val: string) => string;
+}
+
+declare namespace $ {
+    let $mol_action: typeof $mol_wire_method;
+}
+
+declare namespace $ {
+    function $mol_dom_parse(text: string, type?: DOMParserSupportedType): Document;
+}
+
+declare namespace $ {
+    class $mol_fetch_response extends $mol_object2 {
+        readonly native: Response;
+        constructor(native: Response);
+        status(): "success" | "unknown" | "inform" | "redirect" | "wrong" | "failed";
+        code(): number;
+        message(): string;
+        headers(): Headers;
+        mime(): string | null;
+        stream(): ReadableStream<Uint8Array> | null;
+        text(): string;
+        json(): unknown;
+        buffer(): ArrayBuffer;
+        xml(): Document;
+        xhtml(): Document;
+        html(): Document;
+    }
+    class $mol_fetch extends $mol_object2 {
+        static request(input: RequestInfo, init?: RequestInit): Promise<Response> & {
+            destructor: () => void;
+        };
+        static response(input: RequestInfo, init?: RequestInit): $mol_fetch_response;
+        static success(input: RequestInfo, init?: RequestInit): $mol_fetch_response;
+        static stream(input: RequestInfo, init?: RequestInit): ReadableStream<Uint8Array> | null;
+        static text(input: RequestInfo, init?: RequestInit): string;
+        static json(input: RequestInfo, init?: RequestInit): unknown;
+        static buffer(input: RequestInfo, init?: RequestInit): ArrayBuffer;
+        static xml(input: RequestInfo, init?: RequestInit): Document;
+        static xhtml(input: RequestInfo, init?: RequestInit): Document;
+        static html(input: RequestInfo, init?: RequestInit): Document;
+    }
+}
+
+declare namespace $ {
+    function $mol_huggingface_run(this: $, space: string, method: string | number, ...data: readonly any[]): readonly string[];
+    function $mol_huggingface_async(space: string, method: number, ...data: readonly any[]): Promise<[string]> & {
+        destructor: () => void;
+    };
+}
+
+declare namespace $ {
+    function $hyoo_lingua_translate(this: $, lang: string, text: string): string;
+}
+
+declare namespace $ {
     interface $mol_locale_dict {
         [key: string]: string;
     }
@@ -1082,7 +1208,7 @@ declare namespace $ {
         static lang(next?: string): string;
         static source(lang: string): any;
         static texts(lang: string, next?: $mol_locale_dict): $mol_locale_dict;
-        static text(key: string): string;
+        static text(key: string): {} | null;
         static warn(key: string): null;
     }
 }
@@ -1094,10 +1220,6 @@ declare namespace $ {
         };
         theme(): string;
     }
-}
-
-declare namespace $ {
-    let $mol_action: typeof $mol_wire_method;
 }
 
 declare namespace $ {
@@ -1452,7 +1574,7 @@ declare namespace $ {
 declare namespace $ {
     class $mol_lights_toggle extends $mol_check_icon {
         Icon(): $mol_icon_brightness_6;
-        hint(): string;
+        hint(): {} | null;
         checked(val?: any): boolean;
         Lights_icon(): $mol_icon_brightness_6;
         lights(val?: any): boolean;
@@ -1518,7 +1640,7 @@ declare namespace $ {
 
 declare namespace $ {
     class $mol_link_source extends $mol_link {
-        hint(): string;
+        hint(): {} | null;
         sub(): readonly any[];
         Icon(): $mol_icon_github_circle;
     }
@@ -1557,10 +1679,6 @@ declare namespace $ {
         Fallback(): $$.$mol_link;
         uri_change(next?: any): any;
     }
-}
-
-declare namespace $ {
-    function $mol_wire_sync<Host extends object>(obj: Host): (Host extends (...args: infer Args) => infer Res ? Res extends Promise<infer Res2> ? (...args: Args) => Res2 : Host : {}) & { [key in keyof Host]: Host[key] extends (...args: infer Args_1) => Promise<infer Res_1> ? (...args: Args_1) => Res_1 : Host[key]; };
 }
 
 declare namespace $ {
@@ -1635,62 +1753,62 @@ declare namespace $ {
         attr(): {
             mol_theme: string;
         };
-        title(): string;
+        title(): {} | null;
         tools(): readonly any[];
         body(): readonly any[];
         Theme(): $$.$mol_theme_auto;
         Lights(): $$.$mol_lights_toggle;
         Source(): $mol_link_source;
-        offer_title(): string;
+        offer_title(): {} | null;
         Offer_button(): $mol_button_major;
         Offer_link(): $$.$mol_link;
-        app_widgets_title(): string;
+        app_widgets_title(): {} | null;
         App_widgets(): $$.$hyoo_showcase_app;
-        app_scout_title(): string;
+        app_scout_title(): {} | null;
         App_scout(): $$.$hyoo_showcase_app;
-        app_piterjs_title(): string;
+        app_piterjs_title(): {} | null;
         App_piterjs(): $$.$hyoo_showcase_app;
-        app_shelter_title(): string;
+        app_shelter_title(): {} | null;
         App_shelter(): $$.$hyoo_showcase_app;
-        app_fallacy_title(): string;
+        app_fallacy_title(): {} | null;
         App_fallacy(): $$.$hyoo_showcase_app;
-        app_toys_title(): string;
+        app_toys_title(): {} | null;
         App_toys(): $$.$hyoo_showcase_app;
-        app_calc_title(): string;
+        app_calc_title(): {} | null;
         App_calc(): $$.$hyoo_showcase_app;
-        app_notes_title(): string;
+        app_notes_title(): {} | null;
         App_notes(): $$.$hyoo_showcase_app;
-        app_invest_title(): string;
+        app_invest_title(): {} | null;
         App_invest(): $$.$hyoo_showcase_app;
-        app_todomvc_title(): string;
+        app_todomvc_title(): {} | null;
         App_todomvc(): $$.$hyoo_showcase_app;
-        app_life_title(): string;
+        app_life_title(): {} | null;
         App_life(): $$.$hyoo_showcase_app;
-        app_habhub_title(): string;
+        app_habhub_title(): {} | null;
         App_habhub(): $$.$hyoo_showcase_app;
-        app_questions_title(): string;
+        app_questions_title(): {} | null;
         App_questions(): $$.$hyoo_showcase_app;
-        app_slides_title(): string;
+        app_slides_title(): {} | null;
         App_slides(): $$.$hyoo_showcase_app;
-        app_iq_title(): string;
+        app_iq_title(): {} | null;
         App_iq(): $$.$hyoo_showcase_app;
-        app_rdf_title(): string;
+        app_rdf_title(): {} | null;
         App_rdf(): $$.$hyoo_showcase_app;
-        app_lamps_title(): string;
+        app_lamps_title(): {} | null;
         App_lamps(): $$.$hyoo_showcase_app;
-        app_bench_title(): string;
+        app_bench_title(): {} | null;
         App_bench(): $$.$hyoo_showcase_app;
-        app_request_title(): string;
+        app_request_title(): {} | null;
         App_request(): $$.$hyoo_showcase_app;
-        app_jsperf_title(): string;
+        app_jsperf_title(): {} | null;
         App_jsperf(): $$.$hyoo_showcase_app;
-        app_issues_title(): string;
+        app_issues_title(): {} | null;
         App_issues(): $$.$hyoo_showcase_app;
-        app_tree_title(): string;
+        app_tree_title(): {} | null;
         App_tree(): $$.$hyoo_showcase_app;
-        app_icons_title(): string;
+        app_icons_title(): {} | null;
         App_icons(): $$.$hyoo_showcase_app;
-        app_portal_title(): string;
+        app_portal_title(): {} | null;
         App_portal(): $$.$hyoo_showcase_app;
         apps(): readonly any[];
         Scroll(): $$.$mol_scroll;
