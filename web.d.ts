@@ -1047,8 +1047,8 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    function $mol_huggingface_run(this: $, space: string, method: string | number, ...data: readonly any[]): readonly string[];
-    function $mol_huggingface_async(space: string, method: number, ...data: readonly any[]): Promise<[string]> & {
+    function $mol_huggingface_run(this: $, space: string, method: string | number, ...data: readonly any[]): any[] | readonly string[];
+    function $mol_huggingface_async(space: string, method: number, ...data: readonly any[]): Promise<any[]> & {
         destructor: () => void;
     };
 }
@@ -1066,7 +1066,7 @@ declare namespace $ {
         static lang(next?: string): string;
         static source(lang: string): any;
         static texts(lang: string, next?: $mol_locale_dict): $mol_locale_dict;
-        static text(key: string): {} | null;
+        static text(key: string): string;
         static warn(key: string): null;
     }
 }
@@ -1448,7 +1448,7 @@ declare namespace $ {
 declare namespace $ {
     class $mol_lights_toggle extends $mol_check_icon {
         Icon(): $mol_icon_brightness_6;
-        hint(): {} | null;
+        hint(): string;
         checked(val?: any): boolean;
         Lights_icon(): $mol_icon_brightness_6;
         lights(val?: any): boolean;
@@ -1514,7 +1514,7 @@ declare namespace $ {
 
 declare namespace $ {
     class $mol_link_source extends $mol_link {
-        hint(): {} | null;
+        hint(): string;
         sub(): readonly any[];
         Icon(): $mol_icon_github_circle;
     }
@@ -1627,62 +1627,62 @@ declare namespace $ {
         attr(): {
             mol_theme: string;
         };
-        title(): {} | null;
+        title(): string;
         tools(): readonly any[];
         body(): readonly any[];
         Theme(): $$.$mol_theme_auto;
         Lights(): $$.$mol_lights_toggle;
         Source(): $mol_link_source;
-        offer_title(): {} | null;
+        offer_title(): string;
         Offer_button(): $mol_button_major;
         Offer_link(): $$.$mol_link;
-        app_widgets_title(): {} | null;
+        app_widgets_title(): string;
         App_widgets(): $$.$hyoo_showcase_app;
-        app_scout_title(): {} | null;
+        app_scout_title(): string;
         App_scout(): $$.$hyoo_showcase_app;
-        app_piterjs_title(): {} | null;
+        app_piterjs_title(): string;
         App_piterjs(): $$.$hyoo_showcase_app;
-        app_shelter_title(): {} | null;
+        app_shelter_title(): string;
         App_shelter(): $$.$hyoo_showcase_app;
-        app_fallacy_title(): {} | null;
+        app_fallacy_title(): string;
         App_fallacy(): $$.$hyoo_showcase_app;
-        app_toys_title(): {} | null;
+        app_toys_title(): string;
         App_toys(): $$.$hyoo_showcase_app;
-        app_calc_title(): {} | null;
+        app_calc_title(): string;
         App_calc(): $$.$hyoo_showcase_app;
-        app_notes_title(): {} | null;
+        app_notes_title(): string;
         App_notes(): $$.$hyoo_showcase_app;
-        app_invest_title(): {} | null;
+        app_invest_title(): string;
         App_invest(): $$.$hyoo_showcase_app;
-        app_todomvc_title(): {} | null;
+        app_todomvc_title(): string;
         App_todomvc(): $$.$hyoo_showcase_app;
-        app_life_title(): {} | null;
+        app_life_title(): string;
         App_life(): $$.$hyoo_showcase_app;
-        app_habhub_title(): {} | null;
+        app_habhub_title(): string;
         App_habhub(): $$.$hyoo_showcase_app;
-        app_questions_title(): {} | null;
+        app_questions_title(): string;
         App_questions(): $$.$hyoo_showcase_app;
-        app_slides_title(): {} | null;
+        app_slides_title(): string;
         App_slides(): $$.$hyoo_showcase_app;
-        app_iq_title(): {} | null;
+        app_iq_title(): string;
         App_iq(): $$.$hyoo_showcase_app;
-        app_rdf_title(): {} | null;
+        app_rdf_title(): string;
         App_rdf(): $$.$hyoo_showcase_app;
-        app_lamps_title(): {} | null;
+        app_lamps_title(): string;
         App_lamps(): $$.$hyoo_showcase_app;
-        app_bench_title(): {} | null;
+        app_bench_title(): string;
         App_bench(): $$.$hyoo_showcase_app;
-        app_request_title(): {} | null;
+        app_request_title(): string;
         App_request(): $$.$hyoo_showcase_app;
-        app_jsperf_title(): {} | null;
+        app_jsperf_title(): string;
         App_jsperf(): $$.$hyoo_showcase_app;
-        app_issues_title(): {} | null;
+        app_issues_title(): string;
         App_issues(): $$.$hyoo_showcase_app;
-        app_tree_title(): {} | null;
+        app_tree_title(): string;
         App_tree(): $$.$hyoo_showcase_app;
-        app_icons_title(): {} | null;
+        app_icons_title(): string;
         App_icons(): $$.$hyoo_showcase_app;
-        app_portal_title(): {} | null;
+        app_portal_title(): string;
         App_portal(): $$.$hyoo_showcase_app;
         apps(): readonly any[];
         Scroll(): $$.$mol_scroll;
