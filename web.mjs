@@ -5536,6 +5536,5 @@ var $;
     $mol_style_attach("hyoo/showcase/showcase.view.css", "[hyoo_showcase] {\n\tdisplay: flex;\n}\n\n[hyoo_showcase_scroll] {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tpadding: .5rem;\n}\n\n[hyoo_showcase_app] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex: 1 1 26rem;\n\tmargin: 0;\n\theight: 16rem;\n\tcursor: pointer;\n}\n\n[hyoo_showcase_app]:hover {\n\t/* opacity: .9; */\n}\n\n[hyoo_showcase_app_title] {\n\tflex: none;\n}\n\n[hyoo_showcase_app_container] {\n    position: relative;\n    width: 100%;\n    max-width: 100%;\n    height: 13rem;\n    max-height: 100%;\n}\n\n[hyoo_showcase_app_demo] {\n\tpointer-events: none;\n\tbox-shadow: 0 0 0 2px var(--mol_theme_line);\n\twidth: 200%;\n    max-width: 200%;\n    max-height: 200%;\n    transform: scale( .5 );\n    transform-origin: 0 0;\n    background-size: cover;\n    position: absolute;\n}\n\n[hyoo_showcase_offer_link] {\n\tpadding: 0;\n}\n");
 })($ || ($ = {}));
 //hyoo/showcase/-css/showcase.view.css.ts
-;
-export default $
-//# sourceMappingURL=web.mjs.map
+
+//# sourceMappingURL=web.js.map
