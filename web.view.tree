@@ -154,10 +154,7 @@ $mol_link_source $mol_link
 	sub /
 		<= Icon $mol_icon_script_text
 
-$mol_button_major $mol_button_typed
-	attr *
-		^
-		mol_theme \$mol_theme_accent
+$mol_button_major $mol_button_minor
 
 $mol_embed_native $mol_scroll
 	uri? \
